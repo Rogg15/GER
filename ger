@@ -60,3 +60,4 @@ for i,v in ipairs(machines) do
     until a == false
 end
 
+wait(2)
