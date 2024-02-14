@@ -20,8 +20,8 @@ local machines = {
 local DailyRedeemables = {
     {"Castle"; "SmallDailyDiamonds"};
     {"Jungle";"DailyPotions"};
-	{"Palm Beach"; "DailyItems"};
-	{"Coral Reef"; "DailyEnchants"};
+	--{"Palm Beach"; "DailyItems"};
+	--{"Coral Reef"; "DailyEnchants"};
     {"Red Desert"; "MediumDailyDiamonds"};
 }
 
