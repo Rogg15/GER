@@ -8,9 +8,13 @@ local merchant_buy = remotes.Merchant_RequestPurchase
 local machines = {
     {"PotionVendingMachine1";"Cherry Blossom"};
     {"PotionVendingMachine2";"Safari"};
-    {"PotionVendingMachine3";"Ice Sculptures"};
+    {"PotionVendingMachine3";"Underworld Bridge"};
+    {"PotionVendingMachine4";"Ice Sculptures"};
+
     {"EnchantVendingMachine1";"Misty Falls"};
     {"EnchantVendingMachine2";"Fire and Ice"};
+    {"EnchantVendingMachine3";"Samurai Village"};
+
     {"FruitVendingMachine1";"Mushroom Field"};
     {"FruitVendingMachine2";"Pirate Cove"};
 }
