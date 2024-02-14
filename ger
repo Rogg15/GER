@@ -6,28 +6,21 @@ local hum = game.Players.LocalPlayer.Character.Humanoid
 local merchant_buy = remotes.Merchant_RequestPurchase
 
 local machines = {
+    {"RarePotionsVendingMachine1";"Underworld Bridge"};
+    {"RareEnchantsVendingMachine1";"Samurai Village"};
     {"PotionVendingMachine1";"Cherry Blossom"};
     {"PotionVendingMachine2";"Safari"};
-    {"RarePotionVendingMachine1";"Underworld Bridge"};
-    {"OPPotionVendingMachine1";"Ice Sculptures"};
-    {"EnchantVendingMachine1";"Misty Falls"};
-    {"EnchantVendingMachine2";"Fire and Ice"};
-    {"RareEnchantVendingMachine1";"Samurai Village"};
     {"FruitVendingMachine1";"Mushroom Field"};
+    {"EnchantVendingMachine1";"Misty Falls"};
     {"FruitVendingMachine2";"Pirate Cove"};
+    {"EnchantVendingMachine2";"Fire and Ice"};
+    {"OPPotionsVendingMachine1";"Ice Sculptures"};
 }
 
-local DailyRedeemables = {
-    {"Castle"; "SmallDailyDiamonds"};
-    {"Jungle";"DailyPotions"};
-	--{"Palm Beach"; "DailyItems"};
-	--{"Coral Reef"; "DailyEnchants"};
-    {"Red Desert"; "MediumDailyDiamonds"};
-}
 
 local Merchants = {
     {"RegularMerchant";"Oasis"};
-    {"AdvancedMerchant"; "Ice Rink"}
+    {"AdvancedMerchant"; "Ice Rink"};
 }
 
 local function teleport(destination)
@@ -38,6 +31,19 @@ local function teleport(destination)
     hum:ChangeState(Enum.HumanoidStateType.Jumping)
     task.wait(1)
     hum:ChangeState(Enum.HumanoidStateType.Jumping)
+end
+
+
+for i,v in ipairs(Merchants) do
+    teleport(v[2])
+    task.wait(1)
+    local a, b
+    for i = 1, 6, 1 do
+        repeat
+            a,b = merchant_buy:InvokeServer(v[1], i)
+            task.wait(0.1)
+        until a == false
+    end
 end
 
 for i,v in ipairs(machines) do
@@ -54,20 +60,3 @@ for i,v in ipairs(machines) do
     until a == false
 end
 
-for i,v in ipairs(DailyRedeemables) do
-    teleport(v[1])
-    daily_redeem:InvokeServer(v[2])
-end
-
-for i,v in ipairs(Merchants) do
-    teleport(v[2])
-    task.wait(1)
-    local a, b
-    for i = 1, 6, 1 do
-        repeat
-            a,b = merchant_buy:InvokeServer(v[1], i)
-            task.wait(0.1)
-        until a == false
-    end
-
-end
